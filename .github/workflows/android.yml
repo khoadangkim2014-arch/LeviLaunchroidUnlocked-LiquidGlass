@@ -108,7 +108,7 @@ jobs:
             echo "=== build_error.log line count ==="
             wc -l /tmp/build_error.log
             echo "=== lines containing Exception/Caused by/error/FAILURE ==="
-            grep -n -iE "Exception|Caused by|error:|FAILURE" /tmp/build_error.log | head -n 60
+            grep -n -A2 -iE "error:" /tmp/build_error.log | head -n 150
             echo "=== first 150 lines ==="
             head -n 150 /tmp/build_error.log
           } > .ci-debug/apk_diagnosis.log 2>&1
