@@ -15,7 +15,7 @@
         app:refractionHeight="24dp"
         app:bevelWidth="8dp"
         app:dispersionStrength="0.08"
-        app:enableAdaptiveTint="true">
+        app:adaptiveTint="true">
 
         <FrameLayout
             android:layout_width="match_parent"
