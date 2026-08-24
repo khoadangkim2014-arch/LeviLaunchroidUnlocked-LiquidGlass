@@ -141,6 +141,10 @@ android {
 dependencies {
     implementation project(':minecraft')
     implementation project(':pojav_controls')
+    // Liquid Glass UI (replaces Material Design components): real SDF refraction,
+    // chromatic dispersion, backdrop blur, C++/NEON pipeline below API 33.
+    // https://github.com/QWEA0/Liquid-Glass-Android
+    implementation "com.github.QWEA0:liquidglass:v2.0.2"
     implementation libs.minecraftauth
     implementation libs.commons.httpclient
     implementation libs.commons.gson

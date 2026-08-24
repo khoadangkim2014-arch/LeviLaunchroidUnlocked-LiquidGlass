@@ -116,29 +116,19 @@
                             app:tint="@color/text_secondary" />
                     </LinearLayout>
 
-                    <Button
+                    <com.example.liquidglass.LiquidGlassButton
                         android:id="@+id/launch_button"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:paddingHorizontal="16dp"
                         android:layout_marginStart="10dp"
-                        android:background="@drawable/bg_launch_button"
-                        app:backgroundTint="@null"
-                        app:icon="@drawable/ic_nav_launch"
-                        app:iconPadding="6dp"
-                        app:iconTint="@android:color/white"
-                        app:iconGravity="textStart"
-                        app:iconSize="18dp"
                         android:text="@string/launch"
                         android:textColor="@color/on_primary"
                         android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:textAllCaps="false"
-                        android:fontFamily="@font/misans"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
+                        app:cornerRadius="999dp"
+                        app:glassMaterial="regular"
+                        app:refractionHeight="20dp"
+                        app:bevelWidth="6dp"
+                        app:dispersionStrength="0.1" />
                 </LinearLayout>
 
                 <ProgressBar

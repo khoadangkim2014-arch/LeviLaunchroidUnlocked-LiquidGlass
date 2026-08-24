@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.view.Gravity;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +29,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.TextViewCompat;
+
+import com.example.liquidglass.LiquidGlassView;
 
 import org.levimc.launcher.R;
 import org.levimc.launcher.core.auth.MsftAccountStore;
@@ -102,20 +106,35 @@ public class BaseActivity extends AppCompatActivity {
             return;
         }
 
-        LinearLayout wrapper = new LinearLayout(this);
-        wrapper.setOrientation(LinearLayout.VERTICAL);
+        FrameLayout wrapper = new FrameLayout(this);
         wrapper.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         ));
 
+        // Content fills the whole screen; the glass nav bar floats on top of it as an
+        // overlay (not a stacked row) so LiquidGlassTabBar has something behind it to
+        // refract. Top-pad the content so it doesn't start out hidden under the bar.
+        FrameLayout.LayoutParams contentParams = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        contentView.setLayoutParams(contentParams);
+        contentView.setId(R.id.base_activity_content_root);
+        contentView.setPadding(
+                contentView.getPaddingLeft(),
+                (int) (56 * getResources().getDisplayMetrics().density),
+                contentView.getPaddingRight(),
+                contentView.getPaddingBottom());
+        wrapper.addView(contentView);
+
         View navBar = LayoutInflater.from(this).inflate(R.layout.nav_bar, wrapper, false);
+        FrameLayout.LayoutParams navBarParams = (FrameLayout.LayoutParams) navBar.getLayoutParams();
+        navBarParams.gravity = Gravity.TOP;
+        navBar.setLayoutParams(navBarParams);
         wrapper.addView(navBar);
 
-        LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
-        contentView.setLayoutParams(contentParams);
-        wrapper.addView(contentView);
+        // Point every glass surface in the nav bar at the content behind it so the
+        // real backdrop-blur/refraction pipeline has something to sample.
+        wireGlassBackdrop(navBar, contentView);
 
         contentView.setAlpha(0f);
         contentView.setTranslationY(8f * getResources().getDisplayMetrics().density);
@@ -132,6 +151,26 @@ public class BaseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Recursively finds every LiquidGlassView (LiquidGlassTabBar, LiquidGlassButton,
+     * plain glass panels, etc.) inside the nav bar and points its backdrop source at
+     * the screen content behind it, and turns on dynamic backdrop tracking since the
+     * bar floats over content that can scroll or animate under it.
+     */
+    private void wireGlassBackdrop(View root, View backdropSource) {
+        if (root instanceof LiquidGlassView) {
+            LiquidGlassView glass = (LiquidGlassView) root;
+            glass.setBackdropSource(backdropSource);
+            glass.setEnableDynamicBackground(true);
+        }
+        if (root instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) root;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                wireGlassBackdrop(group.getChildAt(i), backdropSource);
+            }
+        }
+    }
+
     private void applyPersonalization() {
         PersonalizationManager pm = new PersonalizationManager(this);
         pm.applyToActivity(this);
@@ -142,39 +181,57 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void setupBaseNavBar() {
-        int[] tabIds = {
-            R.id.nav_tab_launch, R.id.nav_tab_instances,
-            R.id.nav_tab_about, R.id.nav_tab_settings
-        };
-
         PersonalizationManager pm = new PersonalizationManager(this);
         int accent = pm.getAccentColor();
 
-        for (int id : tabIds) {
-            TextView tab = findViewById(id);
-            if (tab == null) continue;
-            int color = getResources().getColor(R.color.text_secondary, getTheme());
-            tab.setTextColor(color);
-            tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
-            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
+        com.example.liquidglass.LiquidGlassTabBar tabBar = findViewById(R.id.nav_tab_bar);
+        if (tabBar != null) {
+            tabBar.setTabs(java.util.Arrays.<CharSequence>asList(
+                    getString(R.string.nav_launch),
+                    getString(R.string.nav_instances),
+                    getString(R.string.nav_about),
+                    getString(R.string.nav_settings)
+            ));
+            if (accent != 0) tabBar.setSelectedTintColor(accent);
+            tabBar.setOnTabSelected(index -> {
+                switch (index) {
+                    case 0:
+                        if (!(this instanceof MainActivity)) {
+                            Intent intent = new Intent(this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                        }
+                        break;
+                    case 1:
+                        if (!(this instanceof InstancesActivity)) {
+                            startActivity(new Intent(this, InstancesActivity.class));
+                        }
+                        break;
+                    case 2:
+                        if (!(this instanceof AboutActivity)) {
+                            startActivity(new Intent(this, AboutActivity.class));
+                        }
+                        break;
+                    case 3:
+                        if (!(this instanceof SettingsActivity)) {
+                            startActivity(new Intent(this, SettingsActivity.class));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return kotlin.Unit.INSTANCE;
+            });
         }
 
         if (pm.hasBackgroundImage()) {
-            View navRoot = findViewById(R.id.nav_bar_root);
-            if (navRoot != null) {
-                boolean isDark = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
-                        == Configuration.UI_MODE_NIGHT_YES;
-                navRoot.setBackgroundColor(isDark
-                        ? android.graphics.Color.argb(90, 25, 25, 25)
-                        : android.graphics.Color.argb(110, 255, 255, 255));
-            }
-            View navDivider = findViewById(R.id.nav_divider);
-            if (navDivider != null) {
-                boolean isDark = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
-                        == Configuration.UI_MODE_NIGHT_YES;
-                navDivider.setBackgroundColor(isDark
-                        ? android.graphics.Color.argb(40, 255, 255, 255)
-                        : android.graphics.Color.argb(40, 0, 0, 0));
+            // The glass panel already reads the real backdrop through refraction; when a
+            // custom wallpaper is set we just nudge material tint slightly more transparent
+            // via the widget's own material property rather than fighting it with an opaque
+            // overlay color (which would defeat the point of real backdrop blur).
+            com.example.liquidglass.LiquidGlassView navGlass = findViewById(R.id.nav_glass_panel);
+            if (navGlass != null) {
+                navGlass.setGlassMaterial(com.example.liquidglass.GlassMaterial.CLEAR);
             }
         }
 
@@ -195,29 +252,6 @@ public class BaseActivity extends AppCompatActivity {
             avatarContainer.setOnClickListener(v -> startActivity(new Intent(this, AccountsActivity.class)));
             DynamicAnim.applyPressScale(avatarContainer);
         }
-
-        findViewById(R.id.nav_tab_launch).setOnClickListener(v -> {
-            if (!(this instanceof MainActivity)) {
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-            }
-        });
-        findViewById(R.id.nav_tab_instances).setOnClickListener(v -> {
-            if (!(this instanceof InstancesActivity)) {
-                startActivity(new Intent(this, InstancesActivity.class));
-            }
-        });
-        findViewById(R.id.nav_tab_about).setOnClickListener(v -> {
-            if (!(this instanceof AboutActivity)) {
-                startActivity(new Intent(this, AboutActivity.class));
-            }
-        });
-        findViewById(R.id.nav_tab_settings).setOnClickListener(v -> {
-            if (!(this instanceof SettingsActivity)) {
-                startActivity(new Intent(this, SettingsActivity.class));
-            }
-        });
 
         refreshNavAccountUI();
     }
@@ -315,29 +349,22 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setActiveNavTab(int activeTabId) {
         if (!navBarInjected) return;
-        int[] tabIds = {
-            R.id.nav_tab_launch, R.id.nav_tab_instances,
-            R.id.nav_tab_about, R.id.nav_tab_settings
-        };
+        com.example.liquidglass.LiquidGlassTabBar tabBar = findViewById(R.id.nav_tab_bar);
+        if (tabBar == null) return;
 
-        PersonalizationManager pm = new PersonalizationManager(this);
-        int accent = pm.getAccentColor();
-
-        for (int id : tabIds) {
-            TextView tab = findViewById(id);
-            if (tab == null) continue;
-            int color;
-            if (id == activeTabId) {
-                color = accent != 0 ? accent : getResources().getColor(R.color.on_surface, getTheme());
-                tab.setTextColor(color);
-                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.BOLD);
-            } else {
-                color = getResources().getColor(R.color.text_secondary, getTheme());
-                tab.setTextColor(color);
-                tab.setTypeface(tab.getTypeface(), android.graphics.Typeface.NORMAL);
-            }
-            TextViewCompat.setCompoundDrawableTintList(tab, ColorStateList.valueOf(color));
+        int index;
+        if (activeTabId == R.id.nav_tab_launch) {
+            index = 0;
+        } else if (activeTabId == R.id.nav_tab_instances) {
+            index = 1;
+        } else if (activeTabId == R.id.nav_tab_about) {
+            index = 2;
+        } else if (activeTabId == R.id.nav_tab_settings) {
+            index = 3;
+        } else {
+            return;
         }
+        tabBar.setSelectedIndex(index);
     }
 
     @Override
