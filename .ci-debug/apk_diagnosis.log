@@ -1,0 +1,209 @@
+=== find app/build -name '*.apk' ===
+=== build_error.log line count ===
+613 /tmp/build_error.log
+=== lines containing Exception/Caused by/error/FAILURE ===
+164:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:15: error: cannot find symbol
+169:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:50: error: cannot find symbol
+174:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:102: error: cannot find symbol
+179:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:16: error: cannot find symbol
+184:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:17: error: cannot find symbol
+189:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:54: error: cannot find symbol
+194:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:57: error: cannot find symbol
+199:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:63: error: cannot find symbol
+204:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:64: error: cannot find symbol
+209:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:187: error: cannot find symbol
+214:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:234: error: cannot find symbol
+219:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:352: error: cannot find symbol
+224:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:213: error: cannot find symbol
+229:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:150: error: cannot find symbol
+234:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:156: error: cannot find symbol
+249:FAILURE: Build failed with an exception.
+254:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:15: error: cannot find symbol
+259:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:50: error: cannot find symbol
+264:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:102: error: cannot find symbol
+269:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:16: error: cannot find symbol
+274:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:17: error: cannot find symbol
+279:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:54: error: cannot find symbol
+284:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:57: error: cannot find symbol
+289:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:63: error: cannot find symbol
+294:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:64: error: cannot find symbol
+299:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:187: error: cannot find symbol
+304:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:234: error: cannot find symbol
+309:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:352: error: cannot find symbol
+314:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:213: error: cannot find symbol
+319:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:150: error: cannot find symbol
+324:  /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:156: error: cannot find symbol
+339:* Exception is:
+340:org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugJavaWithJavac'.
+342:	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+350:	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+371:	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+373:Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+374:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:15: error: cannot find symbol
+379:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:50: error: cannot find symbol
+384:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:102: error: cannot find symbol
+389:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:16: error: cannot find symbol
+394:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:17: error: cannot find symbol
+399:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:54: error: cannot find symbol
+404:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:57: error: cannot find symbol
+409:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:63: error: cannot find symbol
+414:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:64: error: cannot find symbol
+419:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:187: error: cannot find symbol
+424:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:234: error: cannot find symbol
+429:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/ui/activities/BaseActivity.java:352: error: cannot find symbol
+434:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/ActivityMainBinding.java:213: error: cannot find symbol
+439:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:150: error: cannot find symbol
+444:/home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/build/generated/data_binding_base_class_source_out/debug/out/org/levimc/launcher/databinding/NavBarBinding.java:156: error: cannot find symbol
+581:	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+602:	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+=== first 150 lines ===
+Downloading https://services.gradle.org/distributions/gradle-8.13-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.13!
+
+Here are the highlights of this release:
+ - Daemon JVM auto-provisioning
+ - Enhancements for Scala plugin and JUnit testing
+ - Improvements for build authors and plugin developers
+
+For more details see https://docs.gradle.org/8.13/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+
+> Task :app:configureCMakeDebug[arm64-v8a]
+Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+
+> Task :app:buildCMakeDebug[arm64-v8a]
+> Task :app:mergeDebugJniLibFolders
+> Task :minecraft:preBuild UP-TO-DATE
+> Task :minecraft:preDebugBuild UP-TO-DATE
+> Task :minecraft:mergeDebugJniLibFolders
+> Task :minecraft:mergeDebugNativeLibs NO-SOURCE
+> Task :pojav_controls:preBuild UP-TO-DATE
+> Task :pojav_controls:preDebugBuild UP-TO-DATE
+> Task :minecraft:copyDebugJniLibsProjectOnly
+> Task :pojav_controls:mergeDebugJniLibFolders
+> Task :pojav_controls:mergeDebugNativeLibs NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :pojav_controls:copyDebugJniLibsProjectOnly
+> Task :app:dataBindingMergeDependencyArtifactsDebug
+> Task :app:generateDebugResValues
+> Task :app:generateDebugResources
+> Task :app:injectCrashlyticsMappingFileIdDebug
+> Task :app:injectCrashlyticsVersionControlInfoDebug
+> Task :app:processDebugGoogleServices
+> Task :minecraft:generateDebugResValues
+> Task :app:mergeDebugNativeLibs
+> Task :minecraft:generateDebugResources
+> Task :app:stripDebugDebugSymbols
+> Task :app:injectCrashlyticsBuildIdsDebug
+> Task :app:extractDebugNativeDebugMetadata
+> Task :minecraft:packageDebugResources
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :pojav_controls:generateDebugResValues
+> Task :pojav_controls:generateDebugResources
+> Task :pojav_controls:packageDebugResources
+> Task :app:packageDebugResources
+> Task :minecraft:processDebugNavigationResources
+> Task :pojav_controls:processDebugNavigationResources
+> Task :app:processDebugNavigationResources
+> Task :app:mergeDebugResources
+> Task :app:generateDebugBuildConfig
+> Task :minecraft:writeDebugAarMetadata
+> Task :pojav_controls:writeDebugAarMetadata
+> Task :pojav_controls:parseDebugLocalResources
+> Task :app:parseDebugLocalResources
+> Task :minecraft:parseDebugLocalResources
+> Task :app:checkDebugAarMetadata
+> Task :pojav_controls:generateDebugRFile
+> Task :minecraft:generateDebugRFile
+> Task :app:compileDebugNavigationResources
+> Task :app:dataBindingGenBaseClassesDebug
+> Task :app:mapDebugSourceSetPaths
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :minecraft:extractDeepLinksDebug
+> Task :pojav_controls:extractDeepLinksDebug
+> Task :pojav_controls:compileDebugLibraryResources
+> Task :minecraft:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :minecraft:compileDebugLibraryResources
+> Task :pojav_controls:processDebugManifest
+> Task :minecraft:processDebugManifest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :minecraft:javaPreCompileDebug
+> Task :minecraft:kaptGenerateStubsDebugKotlin
+> Task :app:processDebugResources
+> Task :pojav_controls:javaPreCompileDebug
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :minecraft:kaptDebugKotlin
+
+> Task :pojav_controls:compileDebugJavaWithJavac
+Note: /home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/pojav_controls/src/main/java/org/levimc/pojavcontrols/PojavControlsEditorActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :minecraft:compileDebugKotlin NO-SOURCE
+
+> Task :minecraft:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :minecraft:mergeDebugShaders
+> Task :minecraft:compileDebugShaders NO-SOURCE
+> Task :minecraft:generateDebugAssets UP-TO-DATE
+> Task :minecraft:mergeDebugAssets
+> Task :pojav_controls:mergeDebugShaders
+> Task :pojav_controls:compileDebugShaders NO-SOURCE
+> Task :pojav_controls:generateDebugAssets UP-TO-DATE
+> Task :pojav_controls:bundleLibCompileToJarDebug
+> Task :pojav_controls:mergeDebugAssets
+> Task :minecraft:bundleLibCompileToJarDebug
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :pojav_controls:bundleLibRuntimeToJarDebug
+> Task :app:desugarDebugFileDependencies
+> Task :minecraft:processDebugJavaRes
+> Task :pojav_controls:processDebugJavaRes NO-SOURCE
+> Task :minecraft:bundleLibRuntimeToJarDebug
+> Task :app:checkDebugDuplicateClasses
+> Task :app:compileDebugKotlin
+> Task :app:mergeExtDexDebug
+
+> Task :app:compileDebugKotlin
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/GamePackageManager.kt:421:47 'fun newInstance(): AssetManager!' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/GamePackageManager.kt:629:49 'constructor(p0: AssetManager!, p1: DisplayMetrics!, p2: Configuration!): Resources' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftActivity.kt:515:36 'fun toggleSoftInput(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftActivity.kt:515:71 'static field SHOW_FORCED: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:62:26 'fun setOnSystemUiVisibilityChangeListener(p0: View.OnSystemUiVisibilityChangeListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:279:9 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:281:9 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:309:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:332:52 'static field FLAG_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:333:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:334:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:337:20 'var isStatusBarContrastEnforced: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:342:20 'fun setDecorFitsSystemWindows(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:350:19 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:351:18 'static field SYSTEM_UI_FLAG_IMMERSIVE_STICKY: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:352:22 'static field SYSTEM_UI_FLAG_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:353:22 'static field SYSTEM_UI_FLAG_HIDE_NAVIGATION: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:354:22 'static field SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:355:22 'static field SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftLoadingActivity.kt:356:22 'static field SYSTEM_UI_FLAG_LAYOUT_STABLE: Int' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftProcessRestarter.kt:101:17 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/LeviLaunchroidUnlocked-LiquidGlass/LeviLaunchroidUnlocked-LiquidGlass/app/src/main/java/org/levimc/launcher/core/minecraft/MinecraftProcessRestarter.kt:147:17 'fun overridePendingTransition(p0: Int, p1: Int): Unit' is deprecated. Deprecated in Java.
