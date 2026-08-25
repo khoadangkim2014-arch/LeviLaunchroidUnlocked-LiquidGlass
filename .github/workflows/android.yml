@@ -103,6 +103,8 @@ jobs:
           set +e
           mkdir -p .ci-debug
           {
+            echo "=== compileDebugJavaWithJavac classpath (via --info) ==="
+            ./gradlew :app:compileDebugJavaWithJavac --info 2>&1 | grep -i "liquidglass\|Compiler arguments"
             echo "=== dependency resolution for liquidglass ==="
             ./gradlew :app:dependencies --configuration debugRuntimeClasspath 2>&1 | grep -i -B2 -A2 "liquidglass\|QWEA0"
             echo "=== does the AAR actually exist in the gradle cache? ==="
