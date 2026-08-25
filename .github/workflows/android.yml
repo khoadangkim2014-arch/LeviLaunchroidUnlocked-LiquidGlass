@@ -103,6 +103,10 @@ jobs:
           set +e
           mkdir -p .ci-debug
           {
+            echo "=== dependency resolution for liquidglass ==="
+            ./gradlew :app:dependencies --configuration debugRuntimeClasspath 2>&1 | grep -i -B2 -A2 "liquidglass\|QWEA0"
+            echo "=== does the AAR actually exist in the gradle cache? ==="
+            find ~/.gradle/caches -iname "*liquidglass*" 2>&1
             echo "=== find app/build -name '*.apk' ==="
             find app/build -name "*.apk" 2>&1
             echo "=== build_error.log line count ==="
@@ -116,7 +120,7 @@ jobs:
           git config user.email "ci-bot@users.noreply.github.com"
           git add -f .ci-debug/apk_diagnosis.log
           git commit -m "ci: capture apk diagnosis [skip ci]" || true
-          git push --force origin HEAD:main || true
+          git push --force origin HEAD:refs/heads/ci-diagnostics || true
 
       - name: Fail if debug build failed
         if: ${{ !startsWith(github.ref, 'refs/tags/') && steps.build_debug.outcome == 'failure' }}
