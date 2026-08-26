@@ -144,13 +144,16 @@ dependencies {
     // Liquid Glass UI (replaces Material Design components): real SDF refraction,
     // chromatic dispersion, backdrop blur, C++/NEON pipeline below API 33.
     // https://github.com/QWEA0/Liquid-Glass-Android
-    implementation "com.github.QWEA0:liquidglass:v2.0.2"
-    // Belt-and-braces: some Gradle-Module-Metadata-published AARs resolve fine for
-    // the runtime/dex classpath via `implementation` but don't reliably expose their
-    // api variant on the compile classpath in this AGP/Gradle combo. compileOnly
-    // forces it onto javac's classpath directly; implementation above still handles
-    // packaging/runtime.
-    compileOnly "com.github.QWEA0:liquidglass:v2.0.2"
+    // Liquid Glass UI, vendored as a local AAR (downloaded by CI into app/libs/)
+    // instead of a remote com.github.QWEA0:liquidglass Maven coordinate: the
+    // remote artifact resolves and dex-transforms fine but its classes never
+    // landed on javac's compile classpath in this AGP/Gradle combo (a Gradle
+    // Module Metadata variant-matching issue), even with compileOnly forcing
+    // it directly. A local file dependency bypasses variant resolution
+    // entirely. Its own transitive deps are declared explicitly below since a
+    // raw file dependency doesn't carry POM/module metadata.
+    implementation files('libs/liquidglass-v2.0.2.aar')
+    implementation "androidx.core:core-ktx:1.16.0"
     implementation libs.minecraftauth
     implementation libs.commons.httpclient
     implementation libs.commons.gson

@@ -91,6 +91,13 @@ jobs:
           CF_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
         run: echo "curseforge.api_key=${CF_API_KEY}" >> local.properties
 
+      - name: Download liquidglass AAR directly (bypass Gradle variant resolution)
+        run: |
+          mkdir -p app/libs
+          curl -sL -o app/libs/liquidglass-v2.0.2.aar "https://jitpack.io/com/github/QWEA0/liquidglass/v2.0.2/liquidglass-v2.0.2.aar"
+          ls -la app/libs/liquidglass-v2.0.2.aar
+          file app/libs/liquidglass-v2.0.2.aar
+
       - name: Build Debug APK
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         id: build_debug
