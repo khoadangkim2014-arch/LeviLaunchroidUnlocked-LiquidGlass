@@ -91,13 +91,6 @@ jobs:
           CF_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
         run: echo "curseforge.api_key=${CF_API_KEY}" >> local.properties
 
-      - name: Download liquidglass AAR directly (bypass Gradle variant resolution)
-        run: |
-          mkdir -p app/libs
-          curl -sL -o app/libs/liquidglass-v2.0.2.aar "https://jitpack.io/com/github/QWEA0/liquidglass/v2.0.2/liquidglass-v2.0.2.aar"
-          ls -la app/libs/liquidglass-v2.0.2.aar
-          file app/libs/liquidglass-v2.0.2.aar
-
       - name: Build Debug APK
         if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         id: build_debug
@@ -110,21 +103,6 @@ jobs:
           set +e
           mkdir -p .ci-debug
           {
-            echo "=== compileDebugJavaWithJavac classpath (via --info) ==="
-            ./gradlew :app:compileDebugJavaWithJavac --info 2>&1 | grep -i "liquidglass\|Compiler arguments"
-            echo "=== dependency resolution for liquidglass ==="
-            ./gradlew :app:dependencies --configuration debugRuntimeClasspath 2>&1 | grep -i -B2 -A2 "liquidglass\|QWEA0"
-            echo "=== does the AAR actually exist in the gradle cache? ==="
-            find ~/.gradle/caches -iname "*liquidglass*" 2>&1
-            echo "=== AAR file size and contents ==="
-            AAR_PATH=$(find ~/.gradle/caches -iname "liquidglass-v2.0.2.aar" | head -1)
-            ls -la "$AAR_PATH" 2>&1
-            mkdir -p /tmp/aar_inspect
-            unzip -o "$AAR_PATH" -d /tmp/aar_inspect > /dev/null 2>&1
-            ls -la /tmp/aar_inspect
-            echo "=== classes.jar size and contents ==="
-            ls -la /tmp/aar_inspect/classes.jar 2>&1
-            unzip -l /tmp/aar_inspect/classes.jar 2>&1 | grep -i "liquidglass" | head -20
             echo "=== find app/build -name '*.apk' ==="
             find app/build -name "*.apk" 2>&1
             echo "=== build_error.log line count ==="

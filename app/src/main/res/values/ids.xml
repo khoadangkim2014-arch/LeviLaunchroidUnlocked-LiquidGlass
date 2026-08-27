@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Assigned to the content view wrapped by BaseActivity.wrapWithNavBar() so the
-         floating LiquidGlassTabBar/LiquidGlassButton in the nav bar can point their
-         backdropSource at it. -->
+    <!-- Assigned to the content view wrapped by BaseActivity.wrapWithNavBar() for the
+         floating nav bar overlay layout. -->
     <item name="base_activity_content_root" type="id" />
-
-    <!-- No longer tied to individual views (replaced by LiquidGlassTabBar), kept as
-         stable identifiers so existing setActiveNavTab(R.id.nav_tab_x) call sites across
-         the app didn't need to change; BaseActivity maps these to tab bar indices. -->
-    <item name="nav_tab_launch" type="id" />
-    <item name="nav_tab_instances" type="id" />
-    <item name="nav_tab_about" type="id" />
-    <item name="nav_tab_settings" type="id" />
 </resources>
